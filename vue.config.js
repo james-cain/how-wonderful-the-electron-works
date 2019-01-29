@@ -17,5 +17,24 @@ module.exports = {
         }])
       ]
     }
-    : {}
+    : {},
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg')
+
+    svgRule.exclude
+      .add(resolve(__dirname, './src/icons'))
+      .end()
+
+    config.module
+      .rule('svg-sprite')
+        .test(/\.svg$/)
+        .include
+          .add(resolve(__dirname, './src/icons'))
+          .end()
+        .use('svg')
+          .loader('svg-sprite-loader')
+          .options({
+            symbolId: 'icon-[name]'
+          })
+  }
 }

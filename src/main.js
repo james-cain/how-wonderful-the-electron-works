@@ -40,9 +40,9 @@ import {
   Switch,
 } from 'element-ui';
 import 'normalize.css/normalize.css'; // A modern alternative to CSS resets
-import '@/icons'; // icon
-import '@/mock';
-import '@/permission';
+import '@/icons/index'; // icon
+import '@/mock/index';
+import '@/permission/index';
 import './styles/reset.css';
 import App from './App.vue';
 import router from './router';
